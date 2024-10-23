@@ -12,7 +12,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
   ],
-  plugins: ['@typescript-eslint', 'tailwindcss'],
+  plugins: ['@typescript-eslint', 'jest', 'react-compiler', 'tailwindcss'],
   parser: '@typescript-eslint/parser',
   settings: {
     tailwindcss: {
@@ -21,6 +21,7 @@ module.exports = {
     },
   },
   rules: {
+    'react-compiler/react-compiler': 'error',
     'tailwindcss/no-arbitrary-value': 'warn',
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
@@ -33,6 +34,10 @@ module.exports = {
     {
       extends: ['plugin:@typescript-eslint/disable-type-checked'],
       files: ['*.js', '*.cjs', '*.mjs'],
+    },
+    {
+      files: ['**/?(*.)+test.ts?(x)'],
+      extends: ['plugin:jest/recommended'],
     },
   ],
   ignorePatterns: ['/.expo', 'node_modules', 'android', 'ios'],
