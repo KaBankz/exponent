@@ -1,18 +1,13 @@
 {
   "name": "exponent",
   "main": "expo-router/entry",
-  "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "start": "expo run",
+    "ios": "expo run:ios",
+    "android": "expo run:android",
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint"
-  },
-  "jest": {
-    "preset": "jest-expo"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
@@ -44,6 +39,5 @@
     "jest-expo": "~51.0.3",
     "react-test-renderer": "18.2.0",
     "typescript": "~5.3.3"
-  },
-  "private": true
+  }
 }
