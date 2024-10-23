@@ -5,11 +5,16 @@
     "start": "expo run",
     "ios": "expo run:ios",
     "android": "expo run:android",
-    "web": "expo start --web",
-    "test": "jest --watchAll",
+    "prebuild": "expo prebuild --clean",
+    "test": "jest",
     "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "format": "prettier --check .",
-    "spellcheck": "cspell lint --quiet ."
+    "format:fix": "prettier --write .",
+    "spellcheck": "cspell lint --quiet .",
+    "typecheck": "tsc",
+    "clean": "git clean -xdf .expo ios android dist",
+    "nuke": "git clean -xdf .expo ios android dist node_modules"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
