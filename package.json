@@ -1,6 +1,7 @@
 {
   "name": "exponent",
   "main": "expo-router/entry",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "start": "expo run",
     "ios": "expo run:ios",
