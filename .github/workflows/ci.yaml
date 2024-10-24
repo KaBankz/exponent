@@ -1,0 +1,186 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+  group: ${{ github.event.pull_request.id }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: 20.18.0
+
+jobs:
+  get-changed-files:
+    runs-on: ubuntu-latest
+
+    outputs:
+      ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.any_all_changed_files }}
+      LINT_CHANGED_FILES: ${{ steps.changed-files.outputs.lint_all_changed_files }}
+      TYPECHECK_CHANGED_FILES: ${{ steps.changed-files.outputs.typecheck_all_changed_files }}
+      TEST_CHANGED_FILES: ${{ steps.changed-files.outputs.test_all_changed_files }}
+
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+
+      - name: Get Changed Files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files_yaml: |
+            any:
+              - '**/*'
+            lint:
+              - '**/*.{js,mjs,cjs,ts,tsx}'
+            typecheck:
+              - '**/*.{ts,tsx}'
+            test:
+              - '**/*.{ts,tsx}'
+              - '**/*.test.{ts,tsx}'
+
+      - name: Echo All Changed Files
+        run: |
+          echo All Changed Files: ${{ steps.changed-files.outputs.any_all_changed_files }}
+          echo Lint Changed Files: ${{ steps.changed-files.outputs.lint_all_changed_files }}
+          echo Typecheck Changed Files: ${{ steps.changed-files.outputs.typecheck_all_changed_files }}
+          echo Test Changed Files: ${{ steps.changed-files.outputs.test_all_changed_files }}
+
+  expo-doctor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run Expo Doctor
+        run: npx expo-doctor@latest
+
+  format:
+    needs: [get-changed-files]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run Prettier
+        run: yarn prettier --check --ignore-unknown ${{ needs.get-changed-files.outputs.ALL_CHANGED_FILES }}
+
+  lint:
+    needs: [get-changed-files]
+    if: ${{ needs.get-changed-files.outputs.LINT_CHANGED_FILES != '' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run ESLint
+        run: yarn eslint ${{ needs.get-changed-files.outputs.LINT_CHANGED_FILES }}
+
+  typecheck:
+    needs: [get-changed-files]
+    if: ${{ needs.get-changed-files.outputs.TYPECHECK_CHANGED_FILES != '' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Generate Expo Router Types
+        run: yarn expo customize tsconfig.json
+
+      - name: Run TypeScript Compiler
+        # `tsc-files` will run tsc only on specified files while respecting the tsconfig
+        # Since `tsc-files` empties the `include` field in tsconfig, we need to append the framework types manually
+        run: |
+          EXPO_TYPES=$(find .expo/types -name '*.ts' | tr '\n' ' ')
+          OTHER_TYPES=(expo-env.d.ts nativewind-env.d.ts)
+          npx tsc-files ${{ needs.get-changed-files.outputs.TYPECHECK_CHANGED_FILES }} $EXPO_TYPES ${OTHER_TYPES[@]}
+
+  spellcheck:
+    needs: [get-changed-files]
+    if: ${{ needs.get-changed-files.outputs.ALL_CHANGED_FILES != '' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Run cSpell
+        run: npx cspell lint --quiet ${{ needs.get-changed-files.outputs.ALL_CHANGED_FILES }}
+
+  test:
+    needs: [get-changed-files]
+    if: ${{ needs.get-changed-files.outputs.TEST_CHANGED_FILES != '' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+        with:
+          # Jest needs the full git history to find the changed files
+          fetch-depth: 0
+        # For some reason, even with `fetch-depth: 0`, jest is not
+        # able to access the base branch without this workaround
+      - run: git pull origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run Jest
+        run: yarn jest --changedSince=${{ github.event.pull_request.base.ref }}
