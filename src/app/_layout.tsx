@@ -1,7 +1,8 @@
-import '@/app/global.css';
-
 import { useEffect } from 'react';
+import { Text } from 'react-native';
 
+import { i18n } from '@lingui/core';
+import { I18nProvider, type TransRenderProps } from '@lingui/react';
 import {
   DarkTheme,
   DefaultTheme,
@@ -11,9 +12,16 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 
-import 'react-native-reanimated';
+import '@/app/global.css';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { messages } from '@/locales/en-US/messages.po';
+
+i18n.loadAndActivate({ locale: 'en-US', messages });
+
+const DefaultComponent = (props: TransRenderProps) => {
+  return <Text>{props.children}</Text>;
+};
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
@@ -35,11 +43,13 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='+not-found' />
-      </Stack>
-    </ThemeProvider>
+    <I18nProvider i18n={i18n} defaultComponent={DefaultComponent}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+          <Stack.Screen name='+not-found' />
+        </Stack>
+      </ThemeProvider>
+    </I18nProvider>
   );
 }
