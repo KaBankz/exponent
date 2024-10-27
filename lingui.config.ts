@@ -1,5 +1,6 @@
-/** @type {import('@lingui/conf').LinguiConfig} */
-module.exports = {
+import type { LinguiConfig } from '@lingui/conf';
+
+const config: LinguiConfig = {
   sourceLocale: 'en-US',
   locales: ['en-US', 'es-US'],
   compileNamespace: 'ts',
@@ -10,3 +11,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
