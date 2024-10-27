@@ -6,10 +6,10 @@ module.exports = (api) => {
   api.cache.forever();
 
   return {
+    plugins: ['@lingui/babel-plugin-lingui-macro'],
     presets: [
       ['babel-preset-expo', { jsxImportSource: 'nativewind' }],
       'nativewind/babel',
     ],
-    plugins: ['@lingui/babel-plugin-lingui-macro'],
   };
 };

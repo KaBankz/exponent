@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
-    "@lingui/react": "^4.13.0",
+    "@lingui/react": "^5.0.0-next.3",
     "@react-navigation/native": "^6.0.2",
     "expo": "~51.0.28",
     "expo-constants": "~16.0.2",
@@ -48,9 +48,9 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
-    "@lingui/babel-plugin-lingui-macro": "^5.0.0-next.0",
-    "@lingui/cli": "^4.13.0",
-    "@lingui/metro-transformer": "^4.13.0",
+    "@lingui/babel-plugin-lingui-macro": "^5.0.0-next.3",
+    "@lingui/cli": "^5.0.0-next.3",
+    "@lingui/metro-transformer": "^5.0.0-next.3",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.2.45",
     "@types/react-test-renderer": "^18.0.7",
