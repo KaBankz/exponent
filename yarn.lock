@@ -319,7 +319,7 @@
   dependencies:
     "@babel/types" "^7.25.9"
 
-"@babel/parser@^7.22.0", "@babel/parser@^7.26.0":
+"@babel/parser@^7.21.2", "@babel/parser@^7.22.0", "@babel/parser@^7.26.0":
   version "7.26.1"
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.26.1.tgz#44e02499960df2cdce2c456372a3e8e0c3c5c975"
   integrity sha512-reoQYNiAJreZNsJzyrDNzFQ+IQ5JFiIzAHJg9bn94S3l+4++J7RsIhNMoB+lgP/9tpmiAQqspv+xfdxTSzREOw==
@@ -2168,6 +2168,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lingui/babel-plugin-extract-messages@4.11.2":
+  version "4.11.2"
+  resolved "https://registry.npmjs.org/@lingui/babel-plugin-extract-messages/-/babel-plugin-extract-messages-4.11.2.tgz#c262c427e3533b28befb1e939ef4d029de1a543c"
+  integrity sha512-CjIUy55ICw2nQpJeO9Yhoc65nbDje3b/8Ghbux8OUMbtEYguMKi1pA21eYPYDjTUnjglVTDtapEtLN0iNPWHdg==
+
 "@lingui/babel-plugin-extract-messages@4.13.0":
   version "4.13.0"
   resolved "https://registry.npmjs.org/@lingui/babel-plugin-extract-messages/-/babel-plugin-extract-messages-4.13.0.tgz#deff7f51280b024fff57f00dfb657242ae1b9f3e"
@@ -2184,6 +2189,41 @@
     "@lingui/conf" "^5.0.0-next.0"
     "@lingui/core" "^5.0.0-next.0"
     "@lingui/message-utils" "^5.0.0-next.0"
+
+"@lingui/cli@4.11.2":
+  version "4.11.2"
+  resolved "https://registry.npmjs.org/@lingui/cli/-/cli-4.11.2.tgz#3d0e828493925315148475ba10ff12b48a5eb26e"
+  integrity sha512-onwASvA6KffAos+ceP1K1Hx0mPg6vb3s9Rw7VXSyaUQih225GXlrTZbYKOZkM1XgfMmhN+7kgFrRaqxjiKnLLQ==
+  dependencies:
+    "@babel/core" "^7.21.0"
+    "@babel/generator" "^7.21.1"
+    "@babel/parser" "^7.21.2"
+    "@babel/runtime" "^7.21.0"
+    "@babel/types" "^7.21.2"
+    "@lingui/babel-plugin-extract-messages" "4.11.2"
+    "@lingui/conf" "4.11.2"
+    "@lingui/core" "4.11.2"
+    "@lingui/format-po" "4.11.2"
+    "@lingui/message-utils" "4.11.2"
+    babel-plugin-macros "^3.0.1"
+    chalk "^4.1.0"
+    chokidar "3.5.1"
+    cli-table "0.3.6"
+    commander "^10.0.0"
+    convert-source-map "^2.0.0"
+    date-fns "^3.6.0"
+    esbuild "^0.17.10"
+    glob "^7.1.4"
+    inquirer "^7.3.3"
+    micromatch "4.0.2"
+    normalize-path "^3.0.0"
+    ora "^5.1.0"
+    pathe "^1.1.0"
+    pkg-up "^3.1.0"
+    pofile "^1.1.4"
+    pseudolocale "^2.0.0"
+    ramda "^0.27.1"
+    source-map "^0.8.0-beta.0"
 
 "@lingui/cli@^4.13.0":
   version "4.13.0"
@@ -2220,6 +2260,18 @@
     ramda "^0.27.1"
     source-map "^0.8.0-beta.0"
 
+"@lingui/conf@4.11.2":
+  version "4.11.2"
+  resolved "https://registry.npmjs.org/@lingui/conf/-/conf-4.11.2.tgz#23b4e2cefcd363cebde2573a4e25c06906dc5fd0"
+  integrity sha512-Kw45dRa3biV8CLg50R0e4vCfU750H5fFJ8zBUAIEtWkksKsRDOvf3l1qxfUF76xuLSCPhdLjYfnmW0FqMe/kdg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    chalk "^4.1.0"
+    cosmiconfig "^8.0.0"
+    jest-validate "^29.4.3"
+    jiti "^1.17.1"
+    lodash.get "^4.4.2"
+
 "@lingui/conf@4.13.0":
   version "4.13.0"
   resolved "https://registry.npmjs.org/@lingui/conf/-/conf-4.13.0.tgz#5c63b45cee12fc3fbb0c5a340cbf986e5eb3845a"
@@ -2244,6 +2296,15 @@
     jiti "^1.17.1"
     lodash.get "^4.4.2"
 
+"@lingui/core@4.11.2":
+  version "4.11.2"
+  resolved "https://registry.npmjs.org/@lingui/core/-/core-4.11.2.tgz#0d9d35e8ac975a6a7c910116e6153c5a49db37f2"
+  integrity sha512-5wFmpHeDbLXEqaEUwlayS4SoqrCbDI3/bVRlwhmdNCeUcUYWh+7dTDlQnp4tPek1x1dEppABIkdN/0qLDdKcBQ==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    "@lingui/message-utils" "4.11.2"
+    unraw "^3.0.0"
+
 "@lingui/core@4.13.0":
   version "4.13.0"
   resolved "https://registry.npmjs.org/@lingui/core/-/core-4.13.0.tgz#d21c062b4e7cec198dd602caf07fe212a98c0b2c"
@@ -2262,6 +2323,16 @@
     "@lingui/message-utils" "^5.0.0-next.3"
     unraw "^3.0.0"
 
+"@lingui/format-po@4.11.2":
+  version "4.11.2"
+  resolved "https://registry.npmjs.org/@lingui/format-po/-/format-po-4.11.2.tgz#fd6e724bd439417eb76849195d794f68bc793525"
+  integrity sha512-o5TxpiIjtwObkOipsuNw3zaiHlikhivFfd70paps4Nb5w0Fiaa6pKqvLmIqgsxx7/bgmySr0S/vu8hpAerr4Kg==
+  dependencies:
+    "@lingui/conf" "4.11.2"
+    "@lingui/message-utils" "4.11.2"
+    date-fns "^3.6.0"
+    pofile "^1.1.4"
+
 "@lingui/format-po@4.13.0":
   version "4.13.0"
   resolved "https://registry.npmjs.org/@lingui/format-po/-/format-po-4.13.0.tgz#9e6f244231ff2957d7cef04e40a008a8690f8acd"
@@ -2271,6 +2342,14 @@
     "@lingui/message-utils" "4.13.0"
     date-fns "^3.6.0"
     pofile "^1.1.4"
+
+"@lingui/message-utils@4.11.2":
+  version "4.11.2"
+  resolved "https://registry.npmjs.org/@lingui/message-utils/-/message-utils-4.11.2.tgz#adabdf7c01261dcf59dc1e035ef4c6140bcae547"
+  integrity sha512-3oJk7ZKExk4NVa4d3CM0z0iNqIokaFOWeu7lYVzu0oEX7DP6OxNjlCAtObIhJCB0FdIPz8sXxhDkyDHFj+eIvw==
+  dependencies:
+    "@messageformat/parser" "^5.0.0"
+    js-sha256 "^0.10.1"
 
 "@lingui/message-utils@4.13.0":
   version "4.13.0"
@@ -2287,6 +2366,16 @@
   dependencies:
     "@messageformat/parser" "^5.0.0"
     js-sha256 "^0.10.1"
+
+"@lingui/metro-transformer@^4.13.0":
+  version "4.13.0"
+  resolved "https://registry.npmjs.org/@lingui/metro-transformer/-/metro-transformer-4.13.0.tgz#252bf4866429aa7e993212934f7edc29b9f9e99e"
+  integrity sha512-Q0FCbAyv8kk3f4KTRmA1okNCSNgBD8dCwK76osoDQleqZ2hnCpwFGlLCU9iU24Cya7JevH5k9VDvriuzW0J3cA==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    "@lingui/cli" "4.11.2"
+    "@lingui/conf" "4.11.2"
+    memoize-one "^6.0.0"
 
 "@lingui/react@^4.13.0":
   version "4.13.0"
@@ -3872,7 +3961,7 @@ brace-expansion@^2.0.1:
   dependencies:
     balanced-match "^1.0.0"
 
-braces@^3.0.3, braces@~3.0.2:
+braces@^3.0.1, braces@^3.0.3, braces@~3.0.2:
   version "3.0.3"
   resolved "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz#490332f40919452272d55a8480adc0c441358789"
   integrity sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==
@@ -4163,6 +4252,13 @@ cli-spinners@^2.0.0, cli-spinners@^2.5.0:
   version "2.9.2"
   resolved "https://registry.npmjs.org/cli-spinners/-/cli-spinners-2.9.2.tgz#1773a8f4b9c4d6ac31563df53b3fc1d79462fe41"
   integrity sha512-ywqV+5MmyL4E7ybXgKys4DugZbX0FC6LnwrhjuykIjnK9k8OQacQ7axGKnjDXWNhns0xot3bZI5h55H8yo9cJg==
+
+cli-table@0.3.6:
+  version "0.3.6"
+  resolved "https://registry.npmjs.org/cli-table/-/cli-table-0.3.6.tgz#e9d6aa859c7fe636981fd3787378c2a20bce92fc"
+  integrity sha512-ZkNZbnZjKERTY5NwC2SeMeLeifSPq/pubeRoTpdr3WchLlnZg6hEgvHkK5zL7KNFdd9PmHN8lxrENUwI3cE8vQ==
+  dependencies:
+    colors "1.0.3"
 
 cli-table@^0.3.11:
   version "0.3.11"
@@ -8152,6 +8248,14 @@ metro@0.80.12, metro@^0.80.3:
     ws "^7.5.10"
     yargs "^17.6.2"
 
+micromatch@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npmjs.org/micromatch/-/micromatch-4.0.2.tgz#4fcb0999bf9fbc2fcbdd212f6d629b9a56c39259"
+  integrity sha512-y7FpHSbMUMoyPbYUSzO6PaZ6FyRnQOpHuKwbo1G+Knck95XVU4QAiKdGEnj5wwoS7PlOgthX/09u5iFJ+aYf5Q==
+  dependencies:
+    braces "^3.0.1"
+    picomatch "^2.0.5"
+
 micromatch@^4.0.2, micromatch@^4.0.4, micromatch@^4.0.5, micromatch@^4.0.8:
   version "4.0.8"
   resolved "https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz#d66fa18f3a47076789320b9b1af32bd86d9fa202"
@@ -8810,7 +8914,7 @@ picocolors@^1.0.0, picocolors@^1.1.0:
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
   integrity sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==
 
-picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3, picomatch@^2.3.1:
+picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.3, picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
