@@ -16,8 +16,11 @@ import '@/app/global.css';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { messages } from '@/locales/en-US/messages.po';
+import { messages as pseudoMessages } from '@/locales/pseudo-LOCALE/messages.po';
 
 i18n.loadAndActivate({ locale: 'en-US', messages });
+i18n.load('pseudo-LOCALE', pseudoMessages);
+i18n.activate('pseudo-LOCALE');
 
 const DefaultComponent = (props: TransRenderProps) => {
   return <Text>{props.children}</Text>;
