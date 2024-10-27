@@ -2,7 +2,8 @@ import type { LinguiConfig } from '@lingui/conf';
 
 const config: LinguiConfig = {
   sourceLocale: 'en-US',
-  locales: ['en-US', 'es-US'],
+  locales: ['en-US', 'pseudo-LOCALE'],
+  pseudoLocale: 'pseudo-LOCALE',
   compileNamespace: 'ts',
   catalogs: [
     {
