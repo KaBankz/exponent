@@ -2,7 +2,7 @@
  * @see https://prettier.io/docs/en/configuration.html
  * @type {import("prettier").Config}
  */
-module.exports = {
+export default {
   singleQuote: true,
   jsxSingleQuote: true,
   bracketSameLine: true,
