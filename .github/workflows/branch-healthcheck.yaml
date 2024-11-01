@@ -106,6 +106,9 @@ jobs:
           cache: yarn
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
       - name: Run cSpell
         run: yarn spellcheck
 
