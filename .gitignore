@@ -52,4 +52,4 @@ yarn-error.*
 *.tar.gz
 
 # lingui compiled localizations
-src/locales/**/*.ts
+src/locale/locales/**/*.ts

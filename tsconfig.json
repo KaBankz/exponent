@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "allowJs": false,
+    "module": "ESNext",
     "moduleResolution": "Bundler",
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
