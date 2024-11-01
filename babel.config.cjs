@@ -1,6 +1,8 @@
-import type { ConfigFunction } from '@babel/core';
-
-const config: ConfigFunction = (api) => {
+/**
+ * @see https://babeljs.io/docs/en/config-files#config-function-api
+ * @type {import("@babel/core").ConfigFunction}
+ * */
+module.exports = (api) => {
   api.cache.forever();
 
   return {
@@ -10,5 +12,3 @@ const config: ConfigFunction = (api) => {
     ],
   };
 };
-
-export default config;
