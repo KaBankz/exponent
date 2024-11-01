@@ -23,7 +23,7 @@ jobs:
       TEST_CHANGED_FILES: ${{ steps.changed-files.outputs.test_all_changed_files }}
 
     steps:
-      - name: Checkout Commit
+      - name: Checkout Branch
         uses: actions/checkout@v4
 
       - name: Get Changed Files
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Commit
+      - name: Checkout Branch
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Commit
+      - name: Checkout Branch
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -94,7 +94,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Commit
+      - name: Checkout Branch
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -116,7 +116,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Commit
+      - name: Checkout Branch
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -146,7 +146,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Commit
+      - name: Checkout Branch
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -164,7 +164,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Commit
+      - name: Checkout Branch
         uses: actions/checkout@v4
         with:
           # Jest needs the full git history to find the changed files
