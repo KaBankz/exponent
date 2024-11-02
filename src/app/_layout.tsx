@@ -1,7 +1,7 @@
-import '@/app/global.css';
-
 import { useEffect } from 'react';
 
+import { i18n } from '@lingui/core';
+import { I18nProvider } from '@lingui/react';
 import {
   DarkTheme,
   DefaultTheme,
@@ -11,7 +11,8 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 
-import 'react-native-reanimated';
+import '@/app/global.css';
+import '@/locale/i18n';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -35,11 +36,13 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='+not-found' />
-      </Stack>
-    </ThemeProvider>
+    <I18nProvider i18n={i18n}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+          <Stack.Screen name='+not-found' />
+        </Stack>
+      </ThemeProvider>
+    </I18nProvider>
   );
 }

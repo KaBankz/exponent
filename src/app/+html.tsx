@@ -32,6 +32,7 @@ export default function Root({ children }: PropsWithChildren) {
   );
 }
 
+// eslint-disable-next-line lingui/no-unlocalized-strings
 const responsiveBackground = `
 body {
   background-color: #fff;

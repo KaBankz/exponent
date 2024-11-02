@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useLingui } from '@lingui/react/macro';
 import { Tabs } from 'expo-router';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
@@ -8,6 +9,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { t } = useLingui();
 
   return (
     <Tabs
@@ -18,7 +20,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name='index'
         options={{
-          title: 'Home',
+          title: t`Home`,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? 'home' : 'home-outline'}
@@ -30,7 +32,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name='explore'
         options={{
-          title: 'Explore',
+          title: t`Explore`,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? 'code-slash' : 'code-slash-outline'}

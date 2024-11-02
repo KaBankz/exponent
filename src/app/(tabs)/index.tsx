@@ -1,5 +1,7 @@
 import { Image, Platform, StyleSheet } from 'react-native';
 
+import { Trans } from '@lingui/react/macro';
+
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -16,37 +18,56 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type='title'>Welcome!</ThemedText>
+        <ThemedText type='title'>
+          <Trans>Welcome!</Trans>
+        </ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 1: Try it</ThemedText>
+        <ThemedText type='subtitle'>
+          <Trans>Step 1: Try it</Trans>
+        </ThemedText>
         <ThemedText>
-          Edit{' '}
-          <ThemedText type='defaultSemiBold'>app/(tabs)/index.tsx</ThemedText>{' '}
-          to see changes. Press{' '}
-          <ThemedText type='defaultSemiBold'>
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
+          <Trans>
+            Edit{' '}
+            <ThemedText type='defaultSemiBold'>app/(tabs)/index.tsx</ThemedText>{' '}
+            to see changes. Press{' '}
+            <ThemedText type='defaultSemiBold'>
+              {
+                // eslint-disable-next-line lingui/no-expression-in-message
+                Platform.select({ ios: 'cmd + d', android: 'cmd + m' })
+              }
+            </ThemedText>{' '}
+            to open developer tools.
+          </Trans>
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 2: Explore</ThemedText>
+        <ThemedText type='subtitle'>
+          <Trans>Step 2: Explore</Trans>
+        </ThemedText>
         <ThemedText>
-          Tap the Explore tab to learn more about what's included in this
-          starter app.
+          <Trans>
+            Tap the Explore tab to learn more about what's included in this
+            starter app.
+          </Trans>
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 3: Get a fresh start</ThemedText>
+        <ThemedText type='subtitle'>
+          <Trans>Step 3: Get a fresh start</Trans>
+        </ThemedText>
         <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type='defaultSemiBold'>npm run reset-project</ThemedText>{' '}
-          to get a fresh <ThemedText type='defaultSemiBold'>app</ThemedText>{' '}
-          directory. This will move the current{' '}
-          <ThemedText type='defaultSemiBold'>app</ThemedText> to{' '}
-          <ThemedText type='defaultSemiBold'>app-example</ThemedText>.
+          <Trans>
+            When you're ready, run{' '}
+            <ThemedText type='defaultSemiBold'>
+              npm run reset-project
+            </ThemedText>{' '}
+            to get a fresh <ThemedText type='defaultSemiBold'>app</ThemedText>{' '}
+            directory. This will move the current{' '}
+            <ThemedText type='defaultSemiBold'>app</ThemedText> to{' '}
+            <ThemedText type='defaultSemiBold'>app-example</ThemedText>.
+          </Trans>
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
