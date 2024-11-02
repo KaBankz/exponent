@@ -2,4 +2,7 @@ $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell
 allowCompoundWords: true
 useGitignore: true
 ignorePaths: []
-words: []
+words:
+  - ianvs
+  - kabanks
+  - Zustand
