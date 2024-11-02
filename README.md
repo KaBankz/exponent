@@ -14,10 +14,10 @@ Batteries included, hyper opinionated, Expo React Native project template.
 - [x] cSpell
 - [x] GitHub Workflows
 - [x] Cross Platform (iOS, Android, Web)
+- [x] i18n w/ lingui
 
 ## Future Features
 
-- [ ] i18n w/ lingui
 - [ ] Accessibility Out of the Box
 - [ ] Reusable Primitive Components
 - [ ] Zustand
