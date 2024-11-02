@@ -33,7 +33,10 @@ export default function HomeScreen() {
             <ThemedText type='defaultSemiBold'>app/(tabs)/index.tsx</ThemedText>{' '}
             to see changes. Press{' '}
             <ThemedText type='defaultSemiBold'>
-              {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
+              {
+                // eslint-disable-next-line lingui/no-expression-in-message
+                Platform.select({ ios: 'cmd + d', android: 'cmd + m' })
+              }
             </ThemedText>{' '}
             to open developer tools.
           </Trans>

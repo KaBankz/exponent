@@ -21,6 +21,10 @@ module.exports = {
     'lingui',
   ],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: true,
+    tsconfigRootDir: __dirname,
+  },
   settings: {
     tailwindcss: {
       classRegex: '^[a-zA-Z]*(c|C)lassName$',
@@ -28,16 +32,24 @@ module.exports = {
     },
   },
   rules: {
-    'lingui/no-unlocalized-strings': 'warn',
+    'lingui/no-unlocalized-strings': [
+      'warn',
+      {
+        ignoreAttribute: [
+          {
+            regex: {
+              pattern: 'style',
+              flags: 'i',
+            },
+          },
+        ],
+      },
+    ],
     'lingui/no-expression-in-message': 'warn',
     'react-compiler/react-compiler': 'error',
     'tailwindcss/no-arbitrary-value': 'warn',
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
-  },
-  parserOptions: {
-    project: true,
-    tsconfigRootDir: __dirname,
   },
   overrides: [
     {
