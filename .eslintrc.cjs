@@ -61,5 +61,5 @@ module.exports = {
       extends: ['plugin:jest/recommended'],
     },
   ],
-  ignorePatterns: ['/.expo', 'node_modules', 'android', 'ios'],
+  ignorePatterns: ['/.expo', 'node_modules', 'android', 'ios', 'dist'],
 };
