@@ -35,7 +35,11 @@ export default function HomeScreen() {
             <ThemedText type='defaultSemiBold'>
               {
                 // eslint-disable-next-line lingui/no-expression-in-message
-                Platform.select({ ios: 'cmd + d', android: 'cmd + m' })
+                Platform.select({
+                  ios: 'cmd + d',
+                  android: 'cmd + m',
+                  web: 'F12',
+                })
               }
             </ThemedText>{' '}
             to open developer tools.
