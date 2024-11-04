@@ -4,7 +4,7 @@ import React from 'react';
 import type { OpaqueColorValue, StyleProp, ViewStyle } from 'react-native';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import type { SymbolWeight } from 'expo-symbols';
+import type { SymbolViewProps, SymbolWeight } from 'expo-symbols';
 
 // Add your SFSymbol to MaterialIcons mappings here.
 const MAPPING = {
@@ -16,7 +16,7 @@ const MAPPING = {
   'chevron.right': 'chevron-right',
 } as Partial<
   Record<
-    import('expo-symbols').SymbolViewProps['name'],
+    SymbolViewProps['name'],
     React.ComponentProps<typeof MaterialIcons>['name']
   >
 >;
