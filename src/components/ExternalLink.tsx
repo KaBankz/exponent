@@ -12,12 +12,14 @@ export function ExternalLink({ href, ...rest }: Props) {
       target='_blank'
       {...rest}
       href={href}
-      onPress={async (event) => {
+      onPress={(event) => {
         if (Platform.OS !== 'web') {
           // Prevent the default behavior of linking to the default browser on native.
           event.preventDefault();
           // Open the link in an in-app browser.
-          await openBrowserAsync(href);
+          openBrowserAsync(href).catch((error) => {
+            console.error(`Failed to open link in a browser: ${error}`);
+          });
         }
       }}
     />

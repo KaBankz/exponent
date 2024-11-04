@@ -43,6 +43,7 @@ module.exports = {
             },
           },
         ],
+        ignoreFunction: ['console.log', 'console.error'],
       },
     ],
     'lingui/no-expression-in-message': 'warn',
