@@ -11,6 +11,7 @@ export function ExternalLink({ href, ...rest }: Props) {
     <Link
       target='_blank'
       {...rest}
+      // @ts-expect-error: We are manually setting the href type to only be a string.
       href={href}
       onPress={(event) => {
         if (Platform.OS !== 'web') {
