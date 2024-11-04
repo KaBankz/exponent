@@ -48,6 +48,12 @@ module.exports = {
     'lingui/no-expression-in-message': 'warn',
     'react-compiler/react-compiler': 'error',
     'tailwindcss/no-arbitrary-value': 'warn',
+    '@typescript-eslint/no-var-requires': [
+      'error',
+      {
+        allow: ['.ttf$'],
+      },
+    ],
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
   },
