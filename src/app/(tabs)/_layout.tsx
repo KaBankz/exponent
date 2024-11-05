@@ -4,7 +4,7 @@ import { Platform } from 'react-native';
 import { useLingui } from '@lingui/react/macro';
 import { Tabs } from 'expo-router';
 
-import { HapticTab } from '@/components/HapticTab';
+import { Pressable } from '@/components/Pressable';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
@@ -19,7 +19,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
+        tabBarButton: Pressable,
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
