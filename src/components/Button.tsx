@@ -1,7 +1,9 @@
 import type { ComponentPropsWithRef } from 'react';
-import { Pressable, Text } from 'react-native';
+import { Text } from 'react-native';
 
 import { tv, type VariantProps } from 'tailwind-variants';
+
+import { Pressable } from '@/components/Pressable';
 
 const button = tv({
   slots: {
@@ -53,7 +55,10 @@ export function Button({
   });
 
   return (
-    <Pressable {...props} className={pressableStyle({ className })}>
+    <Pressable
+      {...props}
+      disabled={disabled}
+      className={pressableStyle({ className })}>
       <Text className={textStyle({ className: textClassName })}>{text}</Text>
     </Pressable>
   );
