@@ -19,6 +19,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
+        tabBarShowLabel: false,
         tabBarButton: Pressable,
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
@@ -34,7 +35,7 @@ export default function TabLayout() {
         options={{
           title: t`Home`,
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name='house.fill' color={color} />
+            <IconSymbol size={35} name='house.fill' color={color} />
           ),
         }}
       />
@@ -43,7 +44,7 @@ export default function TabLayout() {
         options={{
           title: t`Explore`,
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name='paperplane.fill' color={color} />
+            <IconSymbol size={35} name='paperplane.fill' color={color} />
           ),
         }}
       />
@@ -53,7 +54,7 @@ export default function TabLayout() {
           title: t`Components`,
           headerShown: true,
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name='puzzlepiece.fill' color={color} />
+            <IconSymbol size={35} name='puzzlepiece.fill' color={color} />
           ),
         }}
       />
