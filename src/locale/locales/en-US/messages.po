@@ -13,33 +13,61 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/(tabs)/explore.tsx:55
+#: src/app/(tabs)/components.tsx:14
+msgid "Active Buttons"
+msgstr "Active Buttons"
+
+#: src/app/(tabs)/explore.tsx:61
 msgid "Android, iOS, and web support"
 msgstr "Android, iOS, and web support"
 
-#: src/app/(tabs)/explore.tsx:114
+#: src/app/(tabs)/explore.tsx:117
 msgid "Animations"
 msgstr "Animations"
 
-#: src/app/(tabs)/explore.tsx:83
+#: src/app/(tabs)/components.tsx:44
+#: src/app/(tabs)/components.tsx:45
+#: src/app/(tabs)/components.tsx:46
+#: src/app/(tabs)/components.tsx:47
+#: src/app/(tabs)/components.tsx:84
+#: src/app/(tabs)/components.tsx:85
+#: src/app/(tabs)/components.tsx:86
+#: src/app/(tabs)/components.tsx:87
+msgid "Button"
+msgstr "Button"
+
+#: src/app/(tabs)/_layout.tsx:53
+msgid "Components"
+msgstr "Components"
+
+#: src/app/(tabs)/explore.tsx:86
 msgid "Custom fonts"
 msgstr "Custom fonts"
 
-#. placeholder {0}: Platform.select({ ios: 'cmd + d', android: 'cmd + m' })
-#: src/app/(tabs)/index.tsx:31
+#: src/app/(tabs)/components.tsx:54
+msgid "Disabled Buttons"
+msgstr "Disabled Buttons"
+
+#. placeholder {0}: Platform.select({ ios: 'cmd + d', android: 'cmd + m', web: 'F12', })
+#: src/app/(tabs)/index.tsx:29
 msgid "Edit <0>app/(tabs)/index.tsx</0> to see changes. Press <1>{0}</1> to open developer tools."
 msgstr "Edit <0>app/(tabs)/index.tsx</0> to see changes. Press <1>{0}</1> to open developer tools."
 
-#: src/app/(tabs)/explore.tsx:23
-#: src/app/(tabs)/_layout.tsx:35
+#: src/app/(tabs)/explore.tsx:29
+#: src/app/(tabs)/_layout.tsx:44
 msgid "Explore"
 msgstr "Explore"
 
-#: src/app/(tabs)/explore.tsx:29
+#: src/app/(tabs)/explore.tsx:35
 msgid "File-based routing"
 msgstr "File-based routing"
 
-#: src/app/(tabs)/explore.tsx:66
+#: src/app/(tabs)/components.tsx:29
+#: src/app/(tabs)/components.tsx:69
+msgid "Filled"
+msgstr "Filled"
+
+#: src/app/(tabs)/explore.tsx:72
 msgid "For static images, you can use the <0>@2x</0> and <1>@3x</1> suffixes to provide files for different screen densities"
 msgstr "For static images, you can use the <0>@2x</0> and <1>@3x</1> suffixes to provide files for different screen densities"
 
@@ -47,62 +75,87 @@ msgstr "For static images, you can use the <0>@2x</0> and <1>@3x</1> suffixes to
 msgid "Go to home screen!"
 msgstr "Go to home screen!"
 
-#: src/app/(tabs)/_layout.tsx:23
+#: src/app/(tabs)/components.tsx:23
+#: src/app/(tabs)/components.tsx:63
+msgid "Gray"
+msgstr "Gray"
+
+#: src/app/(tabs)/_layout.tsx:35
 msgid "Home"
 msgstr "Home"
 
-#: src/app/(tabs)/explore.tsx:64
+#: src/app/(tabs)/explore.tsx:70
 msgid "Images"
 msgstr "Images"
 
-#: src/app/(tabs)/explore.tsx:51
-#: src/app/(tabs)/explore.tsx:79
-#: src/app/(tabs)/explore.tsx:95
-#: src/app/(tabs)/explore.tsx:110
+#: src/app/(tabs)/components.tsx:37
+#: src/app/(tabs)/components.tsx:77
+msgid "Large"
+msgstr "Large"
+
+#: src/app/(tabs)/explore.tsx:57
+#: src/app/(tabs)/explore.tsx:82
+#: src/app/(tabs)/explore.tsx:98
+#: src/app/(tabs)/explore.tsx:113
 msgid "Learn more"
 msgstr "Learn more"
 
-#: src/app/(tabs)/explore.tsx:99
+#: src/app/(tabs)/explore.tsx:102
 msgid "Light and dark mode components"
 msgstr "Light and dark mode components"
+
+#: src/app/(tabs)/components.tsx:36
+#: src/app/(tabs)/components.tsx:76
+msgid "Medium"
+msgstr "Medium"
 
 #: src/app/+not-found.tsx:14
 msgid "Oops!"
 msgstr "Oops!"
 
-#: src/app/(tabs)/explore.tsx:85
+#: src/app/(tabs)/explore.tsx:88
 msgid "Open <0>app/_layout.tsx</0> to see how to load <1>custom fonts such as this one.</1>"
 msgstr "Open <0>app/_layout.tsx</0> to see how to load <1>custom fonts such as this one.</1>"
 
-#: src/app/(tabs)/index.tsx:28
+#: src/app/(tabs)/components.tsx:20
+#: src/app/(tabs)/components.tsx:60
+msgid "Plain"
+msgstr "Plain"
+
+#: src/app/(tabs)/components.tsx:35
+#: src/app/(tabs)/components.tsx:75
+msgid "Small"
+msgstr "Small"
+
+#: src/app/(tabs)/index.tsx:26
 msgid "Step 1: Try it"
 msgstr "Step 1: Try it"
 
-#: src/app/(tabs)/index.tsx:44
+#: src/app/(tabs)/index.tsx:49
 msgid "Step 2: Explore"
 msgstr "Step 2: Explore"
 
-#: src/app/(tabs)/index.tsx:55
+#: src/app/(tabs)/index.tsx:60
 msgid "Step 3: Get a fresh start"
 msgstr "Step 3: Get a fresh start"
 
-#: src/app/(tabs)/index.tsx:47
+#: src/app/(tabs)/index.tsx:52
 msgid "Tap the Explore tab to learn more about what's included in this starter app."
 msgstr "Tap the Explore tab to learn more about what's included in this starter app."
 
-#: src/app/(tabs)/explore.tsx:131
+#: src/app/(tabs)/explore.tsx:134
 msgid "The <0>components/ParallaxScrollView.tsx</0> component provides a parallax effect for the header image."
 msgstr "The <0>components/ParallaxScrollView.tsx</0> component provides a parallax effect for the header image."
 
-#: src/app/(tabs)/explore.tsx:41
+#: src/app/(tabs)/explore.tsx:47
 msgid "The layout file in <0>app/(tabs)/_layout.tsx</0> sets up the tab navigator."
 msgstr "The layout file in <0>app/(tabs)/_layout.tsx</0> sets up the tab navigator."
 
-#: src/app/(tabs)/explore.tsx:31
+#: src/app/(tabs)/explore.tsx:37
 msgid "This app has two screens: <0>app/(tabs)/index.tsx</0> and <1>app/(tabs)/explore.tsx</1>"
 msgstr "This app has two screens: <0>app/(tabs)/index.tsx</0> and <1>app/(tabs)/explore.tsx</1>"
 
-#: src/app/(tabs)/explore.tsx:27
+#: src/app/(tabs)/explore.tsx:33
 msgid "This app includes example code to help you get started."
 msgstr "This app includes example code to help you get started."
 
@@ -110,22 +163,27 @@ msgstr "This app includes example code to help you get started."
 msgid "This screen doesn't exist."
 msgstr "This screen doesn't exist."
 
-#: src/app/(tabs)/explore.tsx:101
+#: src/app/(tabs)/explore.tsx:104
 msgid "This template has light and dark mode support. The <0>useColorScheme()</0> hook lets you inspect what the user's current color scheme is, and so you can adjust UI colors accordingly."
 msgstr "This template has light and dark mode support. The <0>useColorScheme()</0> hook lets you inspect what the user's current color scheme is, and so you can adjust UI colors accordingly."
 
-#: src/app/(tabs)/explore.tsx:116
+#: src/app/(tabs)/explore.tsx:119
 msgid "This template includes an example of an animated component. The <0>components/HelloWave.tsx</0> component uses the powerful <1>react-native-reanimated</1> library to create a waving hand animation."
 msgstr "This template includes an example of an animated component. The <0>components/HelloWave.tsx</0> component uses the powerful <1>react-native-reanimated</1> library to create a waving hand animation."
 
-#: src/app/(tabs)/index.tsx:22
+#: src/app/(tabs)/components.tsx:26
+#: src/app/(tabs)/components.tsx:66
+msgid "Tinted"
+msgstr "Tinted"
+
+#: src/app/(tabs)/index.tsx:20
 msgid "Welcome!"
 msgstr "Welcome!"
 
-#: src/app/(tabs)/index.tsx:58
+#: src/app/(tabs)/index.tsx:63
 msgid "When you're ready, run <0>npm run reset-project</0> to get a fresh <1>app</1> directory. This will move the current <2>app</2> to <3>app-example</3>."
 msgstr "When you're ready, run <0>npm run reset-project</0> to get a fresh <1>app</1> directory. This will move the current <2>app</2> to <3>app-example</3>."
 
-#: src/app/(tabs)/explore.tsx:57
+#: src/app/(tabs)/explore.tsx:63
 msgid "You can open this project on Android, iOS, and the web. To open the web version, press <0>w</0> in the terminal running this project."
 msgstr "You can open this project on Android, iOS, and the web. To open the web version, press <0>w</0> in the terminal running this project."

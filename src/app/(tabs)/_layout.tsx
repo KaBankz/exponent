@@ -47,6 +47,16 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name='components'
+        options={{
+          title: t`Components`,
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name='puzzlepiece.fill' color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
