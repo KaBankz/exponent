@@ -9,9 +9,10 @@ changeLocale(systemLocale).catch((error) => {
 
 export async function changeLocale(locale?: string) {
   switch (locale) {
+    default:
     case 'en-US': {
       const { messages } = await import('@/i18n/locales/en-US/messages.po');
-      i18n.loadAndActivate({ locale, messages });
+      i18n.loadAndActivate({ locale: 'en-US', messages });
       break;
     }
     case 'pseudo-LOCALE': {
@@ -19,11 +20,6 @@ export async function changeLocale(locale?: string) {
         '@/i18n/locales/pseudo-LOCALE/messages.po'
       );
       i18n.loadAndActivate({ locale, messages });
-      break;
-    }
-    default: {
-      const { messages } = await import('@/i18n/locales/en-US/messages.po');
-      i18n.loadAndActivate({ locale: 'en-US', messages });
       break;
     }
   }
