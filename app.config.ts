@@ -4,6 +4,7 @@ const config: ExpoConfig = {
   name: 'exponent',
   slug: 'exponent',
   version: '1.0.0',
+  newArchEnabled: true,
   orientation: 'portrait',
   icon: './src/assets/images/icon.png',
   scheme: 'myapp',
