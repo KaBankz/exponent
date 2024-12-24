@@ -3,7 +3,9 @@ import { getLocales } from 'expo-localization';
 
 const systemLocale = __DEV__ ? 'pseudo-LOCALE' : getLocales()[0]?.languageTag;
 
-changeLocale(systemLocale);
+changeLocale(systemLocale).catch((error) => {
+  console.error(error);
+});
 
 export async function changeLocale(locale?: string) {
   switch (locale) {
