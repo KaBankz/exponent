@@ -1,6 +1,7 @@
-import type { ExpoConfig } from 'expo/config';
+import type { ConfigContext, ExpoConfig } from '@expo/config';
 
-const config: ExpoConfig = {
+export default ({ config }: ConfigContext): ExpoConfig => ({
+  ...config,
   name: 'exponent',
   slug: 'exponent',
   version: '1.0.0',
@@ -33,6 +34,4 @@ const config: ExpoConfig = {
   experiments: {
     typedRoutes: true,
   },
-};
-
-export default config;
+});
