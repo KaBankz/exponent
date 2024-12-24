@@ -1,23 +1,32 @@
-import type { ExpoConfig } from 'expo/config';
+import type { ConfigContext, ExpoConfig } from '@expo/config';
 
-const config: ExpoConfig = {
-  name: 'exponent',
-  slug: 'exponent',
-  version: '1.0.0',
+export default ({ config }: ConfigContext): ExpoConfig => ({
+  ...config,
+  name: 'Exponent', // TODO: Update name
+  slug: 'exponent', // TODO: Update slug
+  owner: undefined, // TODO: Add owner
+  githubUrl: 'https://github.com/kabankz/exponent', // TODO: Update GitHub URL
+  scheme: 'exponent', // TODO: Update scheme
+  version: '0.0.1', // TODO: Update version
   orientation: 'portrait',
-  icon: './src/assets/images/icon.png',
-  scheme: 'myapp',
   userInterfaceStyle: 'automatic',
+  newArchEnabled: true,
+  plugins: ['expo-router', 'expo-localization', 'expo-font'],
   splash: {
     image: './src/assets/images/splash.png',
     resizeMode: 'contain',
     backgroundColor: '#ffffff',
   },
   ios: {
+    bundleIdentifier: 'com.kabanks.exponent', // TODO: Update bundle identifier
+    icon: './src/assets/images/icon.png',
     supportsTablet: true,
-    bundleIdentifier: 'com.kabanks.exponent',
+    config: {
+      usesNonExemptEncryption: false,
+    },
   },
   android: {
+    package: 'com.kabanks.exponent', // TODO: Update package name
     adaptiveIcon: {
       foregroundImage: './src/assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',
@@ -28,10 +37,16 @@ const config: ExpoConfig = {
     output: 'static',
     favicon: './src/assets/images/favicon.png',
   },
-  plugins: ['expo-router', 'expo-localization'],
   experiments: {
     typedRoutes: true,
+    reactCompiler: true,
   },
-};
-
-export default config;
+  runtimeVersion: {
+    policy: 'fingerprint',
+  },
+  extra: {
+    eas: {
+      projectId: undefined, // TODO: Add EAS project id
+    },
+  },
+});

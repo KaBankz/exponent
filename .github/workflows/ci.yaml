@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_VERSION: 22.10.0
+  NODE_VERSION: 22.12.0
 
 jobs:
   get-changed-files:
@@ -136,8 +136,9 @@ jobs:
         # Since `tsc-files` empties the `include` field in tsconfig, we need to append the framework types manually
         run: |
           EXPO_TYPES=$(find .expo/types -name '*.ts' | tr '\n' ' ')
+          LOCAL_TYPES=$(find src/types -name '*.d.ts' | tr '\n' ' ')
           OTHER_TYPES=(expo-env.d.ts nativewind-env.d.ts)
-          npx tsc-files ${{ needs.get-changed-files.outputs.TYPECHECK_CHANGED_FILES }} $EXPO_TYPES ${OTHER_TYPES[@]}
+          npx tsc-files ${{ needs.get-changed-files.outputs.TYPECHECK_CHANGED_FILES }} $EXPO_TYPES $LOCAL_TYPES ${OTHER_TYPES[@]}
 
   spellcheck:
     needs: [get-changed-files]

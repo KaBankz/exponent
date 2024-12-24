@@ -6,6 +6,14 @@ const { withNativeWind } = require('nativewind/metro');
 
 const defaultConfig = getDefaultConfig(__dirname);
 
+defaultConfig.transformer.getTransformOptions = async () => ({
+  transform: {
+    // Disabled experimental tree shaking because it breaks nativewind
+    experimentalImportSupport: false,
+    inlineRequires: false,
+  },
+});
+
 // Set up Lingui
 defaultConfig.transformer = {
   ...defaultConfig.transformer,
