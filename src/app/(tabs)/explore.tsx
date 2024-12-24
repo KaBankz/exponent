@@ -1,6 +1,7 @@
 import { Image, Platform, StyleSheet } from 'react-native';
 
-import { Trans, useLingui } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import ReactLogo from '@/assets/images/react-logo.png';
 import { Collapsible } from '@/components/Collapsible';
@@ -11,8 +12,6 @@ import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export default function TabTwoScreen() {
-  const { t } = useLingui();
-
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}

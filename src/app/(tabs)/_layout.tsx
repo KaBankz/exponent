@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
 
-import { useLingui } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Tabs } from 'expo-router';
 
 import { HapticTab } from '@/components/HapticTab';
@@ -12,7 +12,6 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const { t } = useLingui();
 
   return (
     <Tabs
