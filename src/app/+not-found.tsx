@@ -1,14 +1,13 @@
 import { StyleSheet } from 'react-native';
 
-import { Trans, useLingui } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Link, Stack } from 'expo-router';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function NotFoundScreen() {
-  const { t } = useLingui();
-
   return (
     <>
       <Stack.Screen options={{ title: t`Oops!` }} />
