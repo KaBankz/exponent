@@ -17,7 +17,6 @@
     "spellcheck": "cspell lint --quiet .",
     "typecheck": "tsc",
     "i18n:extract": "lingui extract",
-    "i18n:compile": "lingui compile",
     "clean": "git clean -xdf .expo ios android dist",
     "nuke": "git clean -xdf .expo ios android dist node_modules"
   },

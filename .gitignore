@@ -50,6 +50,3 @@ yarn-error.*
 
 # archives
 *.tar.gz
-
-# lingui compiled localizations
-src/locale/locales/**/*.ts
