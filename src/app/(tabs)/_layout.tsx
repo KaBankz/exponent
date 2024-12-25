@@ -1,8 +1,8 @@
 import React from 'react';
 import { Platform } from 'react-native';
+import { Tabs } from 'expo-router';
 
 import { t } from '@lingui/core/macro';
-import { Tabs } from 'expo-router';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';

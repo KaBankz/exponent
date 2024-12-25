@@ -1,5 +1,4 @@
 import type { StyleProp, ViewStyle } from 'react-native';
-
 import {
   SymbolView,
   type SymbolViewProps,

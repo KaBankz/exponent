@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
+import { Link, Stack } from 'expo-router';
 
 import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
-import { Link, Stack } from 'expo-router';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';

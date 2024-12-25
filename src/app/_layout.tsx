@@ -1,4 +1,8 @@
 import { useEffect } from 'react';
+import { useFonts, type FontSource } from 'expo-font';
+import { Stack } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
 
 import { i18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
@@ -7,10 +11,6 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from '@react-navigation/native';
-import { useFonts, type FontSource } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 

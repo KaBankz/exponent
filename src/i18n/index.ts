@@ -1,5 +1,6 @@
-import { i18n } from '@lingui/core';
 import { getLocales } from 'expo-localization';
+
+import { i18n } from '@lingui/core';
 
 const systemLocale = __DEV__ ? 'pseudo-LOCALE' : getLocales()[0]?.languageTag;
 

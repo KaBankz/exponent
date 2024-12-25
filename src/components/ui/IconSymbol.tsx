@@ -2,9 +2,9 @@
 
 import React from 'react';
 import type { OpaqueColorValue, StyleProp, ViewStyle } from 'react-native';
+import type { SymbolViewProps, SymbolWeight } from 'expo-symbols';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import type { SymbolViewProps, SymbolWeight } from 'expo-symbols';
 
 // Add your SFSymbol to MaterialIcons mappings here.
 const MAPPING = {
