@@ -1,11 +1,13 @@
+import type { ReactNode } from 'react';
 import { getLocales } from 'expo-localization';
 
 import { i18n } from '@lingui/core';
+import { I18nProvider } from '@lingui/react';
 
-const systemLocale = __DEV__ ? 'pseudo-LOCALE' : getLocales()[0]?.languageTag;
+const systemLocale = __DEV__ ? 'pseudo-LOCALE' : getLocales()[0]!.languageTag;
 
 changeLocale(systemLocale).catch((error) => {
-  console.error(error);
+  console.error('Failed to change locale', error);
 });
 
 export async function changeLocale(locale?: string) {
@@ -24,4 +26,8 @@ export async function changeLocale(locale?: string) {
       break;
     }
   }
+}
+
+export function LinguiProvider({ children }: { children: ReactNode }) {
+  return <I18nProvider i18n={i18n}>{children}</I18nProvider>;
 }

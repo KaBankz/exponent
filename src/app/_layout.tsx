@@ -4,8 +4,6 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 
-import { i18n } from '@lingui/core';
-import { I18nProvider } from '@lingui/react';
 import {
   DarkTheme,
   DefaultTheme,
@@ -13,6 +11,7 @@ import {
 } from '@react-navigation/native';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { LinguiProvider } from '@/i18n';
 
 import '@/app/global.css';
 import '@/i18n';
@@ -37,7 +36,7 @@ export default function RootLayout() {
   }
 
   return (
-    <I18nProvider i18n={i18n}>
+    <LinguiProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
@@ -45,6 +44,6 @@ export default function RootLayout() {
         </Stack>
         <StatusBar style='auto' />
       </ThemeProvider>
-    </I18nProvider>
+    </LinguiProvider>
   );
 }
