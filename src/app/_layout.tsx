@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useFonts, type FontSource } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Slot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 
+import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
 import {
   DarkTheme,
   DefaultTheme,
@@ -12,6 +13,7 @@ import {
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { LinguiProvider } from '@/i18n';
+import { tokenCache } from '@/lib/clerkCache';
 
 import '@/app/global.css';
 import '@/i18n';
@@ -36,14 +38,18 @@ export default function RootLayout() {
   }
 
   return (
-    <LinguiProvider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-          <Stack.Screen name='+not-found' />
-        </Stack>
-        <StatusBar style='auto' />
-      </ThemeProvider>
-    </LinguiProvider>
+    <ClerkProvider
+      tokenCache={tokenCache}
+      publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!}>
+      <ClerkLoaded>
+        <LinguiProvider>
+          <ThemeProvider
+            value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+            <StatusBar style='auto' />
+            <Slot />
+          </ThemeProvider>
+        </LinguiProvider>
+      </ClerkLoaded>
+    </ClerkProvider>
   );
 }

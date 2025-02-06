@@ -27,3 +27,9 @@ Batteries included, hyper opinionated, Expo React Native project template.
 - [ ] EAS Config
 
 and more...
+
+## Setup Auth
+
+1. Create a new Clerk project
+2. Add your clerk pushable key to the `.env` file
+3. Disable clerk's bot protection (does not work on native)
