@@ -28,7 +28,7 @@ module.exports = {
   settings: {
     tailwindcss: {
       classRegex: '^[a-zA-Z]*(c|C)lassName$',
-      callees: ['classnames', 'clsx', 'ctl', 'cva', 'cx', 'twMerge'],
+      callees: ['cn', 'tv'],
     },
   },
   rules: {

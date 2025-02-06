@@ -19,7 +19,7 @@ export default {
     '@ianvs/prettier-plugin-sort-imports',
     'prettier-plugin-tailwindcss',
   ],
-  tailwindFunctions: ['cn'],
+  tailwindFunctions: ['cn', 'tv'],
   importOrderTypeScriptVersion: '5.0.0',
   importOrder: [
     '<BUILTIN_MODULES>',
