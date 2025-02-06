@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import {
-  Platform,
   Pressable as RNPressable,
   type GestureResponderEvent,
   type PressableProps as RNPressableProps,
@@ -70,7 +69,7 @@ function PressableComponent(
     type: PressEvent,
     handler?: ((event: GestureResponderEvent) => void) | null
   ) => {
-    if (Platform.OS === 'web') return handler;
+    if (process.env.EXPO_OS === 'web') return handler;
 
     return (event: GestureResponderEvent) => {
       if (type === hapticsEventTrigger && hapticsFeedback) {
