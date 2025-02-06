@@ -35,7 +35,6 @@ jobs:
         run: |
           echo NUM_OF_UPDATED_DEPS=$(git diff --shortstat package.json | awk '{print $4}') >> $GITHUB_OUTPUT
           echo -e "\`\`\`diff\n$(git diff package.json)\n\`\`\`" > package.json.diff.md
-          echo -e "\n@${{ github.repository_owner }}/frontend" >> package.json.diff.md
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
