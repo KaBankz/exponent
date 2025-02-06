@@ -30,7 +30,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     ],
   ],
   ios: {
-    bundleIdentifier: 'com.kabanks.exponent', // TODO: Update bundle identifier
+    bundleIdentifier: 'com.acme.exponent', // TODO: Update bundle identifier
     icon: './src/assets/images/icon.png',
     supportsTablet: true,
     config: {
@@ -38,7 +38,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
   },
   android: {
-    package: 'com.kabanks.exponent', // TODO: Update package name
+    package: 'com.acme.exponent', // TODO: Update package name
     adaptiveIcon: {
       foregroundImage: './src/assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',
