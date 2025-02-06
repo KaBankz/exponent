@@ -11,12 +11,24 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: 'portrait',
   userInterfaceStyle: 'automatic',
   newArchEnabled: true,
-  plugins: ['expo-router', 'expo-localization', 'expo-font'],
-  splash: {
-    image: './src/assets/images/splash.png',
-    resizeMode: 'contain',
-    backgroundColor: '#ffffff',
-  },
+  plugins: [
+    'expo-font',
+    'expo-router',
+    'expo-dev-client',
+    'expo-localization',
+    [
+      'expo-splash-screen',
+      {
+        backgroundColor: '#ffffff',
+        image: './src/assets/images/splash.png',
+        dark: {
+          image: './src/assets/images/splash.png',
+          backgroundColor: '#000000',
+        },
+        imageWidth: 200,
+      },
+    ],
+  ],
   ios: {
     bundleIdentifier: 'com.kabanks.exponent', // TODO: Update bundle identifier
     icon: './src/assets/images/icon.png',
