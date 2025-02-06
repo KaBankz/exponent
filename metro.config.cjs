@@ -14,20 +14,33 @@ defaultConfig.transformer.getTransformOptions = async () => ({
   },
 });
 
-// Set up Lingui
-defaultConfig.transformer = {
-  ...defaultConfig.transformer,
-  babelTransformerPath: require.resolve('@lingui/metro-transformer/expo'),
-};
+/**
+ * Adds Lingui metro transformer to allow for .po/.pot files to be imported
+ *
+ * @see https://lingui.dev/ref/metro-transformer
+ * @param {import('expo/metro-config').MetroConfig} config
+ * @returns {import('expo/metro-config').MetroConfig}
+ */
+function withLingui(config) {
+  config.transformer = {
+    ...config.transformer,
+    babelTransformerPath: require.resolve('@lingui/metro-transformer/expo'),
+  };
 
-defaultConfig.resolver = {
-  ...defaultConfig.resolver,
-  sourceExts: [...defaultConfig.resolver.sourceExts, 'po', 'pot'],
-};
+  config.resolver = {
+    ...config.resolver,
+    sourceExts: [...config.resolver.sourceExts, 'po', 'pot'],
+  };
 
-const nativewindConfig = withNativeWind(defaultConfig, {
-  input: './src/app/global.css',
-  configPath: './tailwind.config.ts',
-});
+  return config;
+}
 
-module.exports = nativewindConfig;
+const config = withLingui(
+  withNativeWind(defaultConfig, {
+    input: './src/app/global.css',
+    configPath: './tailwind.config.ts',
+    inlineRem: 16,
+  })
+);
+
+module.exports = config;
