@@ -1,26 +1,24 @@
-import { type ComponentProps } from 'react';
-import { Platform } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, type LinkProps } from 'expo-router';
 import { openBrowserAsync } from 'expo-web-browser';
 
-type Props = Omit<ComponentProps<typeof Link>, 'href'> & { href: string };
+type Props = Omit<LinkProps, 'href'> & { href: string };
 
-export function ExternalLink({ href, ...rest }: Props) {
+export function ExternalLink({ href, ...props }: Props) {
   return (
     <Link
+      {...props}
       target='_blank'
-      {...rest}
       // @ts-expect-error: We are manually setting the href type to only be a string.
       href={href}
       onPress={(event) => {
-        if (Platform.OS !== 'web') {
-          // Prevent the default behavior of linking to the default browser on native.
-          event.preventDefault();
-          // Open the link in an in-app browser.
-          openBrowserAsync(href).catch((error) => {
-            console.error(`Failed to open link in a browser: ${error}`);
-          });
-        }
+        if (process.env.EXPO_OS === 'web') return;
+
+        // Prevent the default behavior of linking to the default browser on native.
+        event.preventDefault();
+        // Open the link in an in-app browser.
+        openBrowserAsync(href).catch((error) => {
+          console.error(`Failed to open link in a browser: ${error}`);
+        });
       }}
     />
   );
