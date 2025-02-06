@@ -1,5 +1,6 @@
 [tools]
 node = "22.13.1"
+bun = "1.2.2"
 
 [env]
 EXPO_DEBUG = 0

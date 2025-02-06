@@ -15,6 +15,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     'expo-font',
     'expo-router',
     'expo-dev-client',
+    'expo-secure-store',
     'expo-localization',
     [
       'expo-splash-screen',
