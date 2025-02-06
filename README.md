@@ -15,6 +15,7 @@ Batteries included, hyper opinionated, Expo React Native project template.
 - [x] GitHub Workflows
 - [x] Cross Platform (iOS, Android, Web)
 - [x] i18n w/ lingui
+- [x] Auth w/ Clerk
 
 ## Future Features
 
