@@ -33,3 +33,4 @@ and more...
 1. Create a new Clerk project
 2. Add your clerk pushable key to the `.env` file
 3. Disable clerk's bot protection (does not work on native)
+4. Enable SSO for Google and Apple

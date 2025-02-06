@@ -1,14 +1,21 @@
 import { Image, Platform, StyleSheet } from 'react-native';
 
+import { useClerk, useUser } from '@clerk/clerk-expo';
 import { Trans } from '@lingui/react/macro';
 
 import PartialReactLogo from '@/assets/images/partial-react-logo.png';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { Pressable } from '@/components/Pressable';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
+  const { user } = useUser();
+  const { signOut } = useClerk();
+
+  console.log(user);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -17,10 +24,17 @@ export default function HomeScreen() {
       }>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type='title'>
-          <Trans>Welcome!</Trans>
+          <Trans>Welcome! {user?.fullName}</Trans>
         </ThemedText>
         <HelloWave />
       </ThemedView>
+
+      <Pressable onPress={() => void signOut()}>
+        <ThemedText type='subtitle'>
+          <Trans>Sign out</Trans>
+        </ThemedText>
+      </Pressable>
+
       <ThemedView style={styles.stepContainer}>
         <ThemedText type='subtitle'>
           <Trans>Step 1: Try it</Trans>
