@@ -1,3 +1,113 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --background-subtle: 248 250 252;
+  --background-muted: 241 245 249;
+  --foreground: 15 23 42;
+  --foreground-subtle: 30 41 59;
+  --foreground-muted: 71 85 105;
+
+  /* Modern indigo for primary */
+  --primary: 79 70 229;
+  --primary-foreground: 255 255 255;
+  --primary-muted: 99 102 241;
+  --primary-subtle: 224 231 255;
+
+  /* Vibrant cyan for accent */
+  --accent: 6 182 212;
+  --accent-foreground: 255 255 255;
+  --accent-muted: 34 211 238;
+  --accent-subtle: 207 250 254;
+
+  /* Gradient specific colors */
+  --hero-gradient-start: 15 23 42;
+  --hero-gradient-end: 71 85 105;
+  --hero-accent-gradient-start: 79 70 229;
+  --hero-accent-gradient-end: 6 182 212;
+
+  /* Emerald for success */
+  --success: 5 150 105;
+  --success-foreground: 255 255 255;
+  --success-muted: 16 185 129;
+  --success-subtle: 209 250 229;
+
+  /* Amber for warning */
+  --warning: 217 119 6;
+  --warning-foreground: 255 255 255;
+  --warning-muted: 245 158 11;
+  --warning-subtle: 254 243 199;
+
+  /* Rose for destructive */
+  --destructive: 225 29 72;
+  --destructive-foreground: 255 255 255;
+  --destructive-muted: 244 63 94;
+  --destructive-subtle: 255 228 230;
+
+  --card: 255 255 255;
+  --card-muted: 248 250 252;
+  --card-foreground: 15 23 42;
+
+  --border: 226 232 240;
+  --border-hover: 148 163 184;
+
+  --ring: 79 70 229;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 3 7 18;
+    --background-subtle: 17 24 39;
+    --background-muted: 31 41 55;
+    --foreground: 248 250 252;
+    --foreground-subtle: 241 245 249;
+    --foreground-muted: 148 163 184;
+
+    /* Gradient specific colors for dark mode */
+    --hero-gradient-start: 248 250 252;
+    --hero-gradient-end: 248 250 252;
+    --hero-accent-gradient-start: 129 140 248;
+    --hero-accent-gradient-end: 34 211 238;
+
+    /* Brighter indigo for dark mode */
+    --primary: 99 102 241;
+    --primary-foreground: 255 255 255;
+    --primary-muted: 129 140 248;
+    --primary-subtle: 49 46 129;
+
+    /* Brighter cyan for dark mode */
+    --accent: 34 211 238;
+    --accent-foreground: 255 255 255;
+    --accent-muted: 103 232 249;
+    --accent-subtle: 22 78 99;
+
+    /* Brighter emerald for dark mode */
+    --success: 16 185 129;
+    --success-foreground: 255 255 255;
+    --success-muted: 52 211 153;
+    --success-subtle: 6 78 59;
+
+    /* Brighter amber for dark mode */
+    --warning: 245 158 11;
+    --warning-foreground: 255 255 255;
+    --warning-muted: 251 191 36;
+    --warning-subtle: 120 53 15;
+
+    /* Brighter rose for dark mode */
+    --destructive: 244 63 94;
+    --destructive-foreground: 255 255 255;
+    --destructive-muted: 251 113 133;
+    --destructive-subtle: 136 19 55;
+
+    --card: 17 24 39;
+    --card-muted: 31 41 55;
+    --card-foreground: 248 250 252;
+
+    --border: 31 41 55;
+    --border-hover: 75 85 99;
+
+    --ring: 99 102 241;
+  }
+}
