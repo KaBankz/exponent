@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { configureReanimatedLogger } from 'react-native-reanimated';
 import { useFonts, type FontSource } from 'expo-font';
 import { Slot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -17,6 +18,10 @@ import { tokenCache } from '@/lib/clerkCache';
 
 import '@/app/global.css';
 import '@/i18n';
+
+// Disable reanimated strict mode to suppress warnings caused by nativewind
+// ref: https://github.com/nativewind/nativewind/issues/1153
+configureReanimatedLogger({ strict: false });
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();

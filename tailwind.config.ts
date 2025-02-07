@@ -30,11 +30,10 @@ const config: Config = {
           muted: 'rgb(var(--accent-muted))',
           subtle: 'rgb(var(--accent-subtle))',
         },
-        hero: {
-          'gradient-start': 'rgb(var(--hero-gradient-start))',
-          'gradient-end': 'rgb(var(--hero-gradient-end))',
-          'accent-start': 'rgb(var(--hero-accent-gradient-start))',
-          'accent-end': 'rgb(var(--hero-accent-gradient-end))',
+        input: {
+          DEFAULT: 'rgb(var(--input))',
+          border: 'rgb(var(--input-border))',
+          ring: 'rgb(var(--input-ring))',
         },
         success: {
           DEFAULT: 'rgb(var(--success))',

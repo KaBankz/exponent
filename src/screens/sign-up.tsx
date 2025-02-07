@@ -5,10 +5,20 @@ import { Link, useRouter } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 
 import { useSignUp, useSSO } from '@clerk/clerk-expo';
+import { Ionicons } from '@expo/vector-icons';
 import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
+import { cssInterop } from 'nativewind';
 
 import { Pressable } from '@/components/Pressable';
+
+// Map the `color` prop to the `style` prop
+cssInterop(Ionicons, {
+  className: {
+    target: 'style',
+    nativeStyleToProp: { color: true },
+  },
+});
 
 export const useWarmUpBrowser = () => {
   useEffect(() => {
@@ -138,101 +148,181 @@ export default function SignUpScreen() {
 
   if (pendingVerification) {
     return (
-      <SafeAreaView className='flex-1'>
-        <View className='flex-1 justify-center px-6'>
-          <Text className='mb-8 text-center text-2xl font-bold text-white'>
-            <Trans>Verify your email</Trans>
-          </Text>
-          <TextInput
-            className='w-full rounded-lg border px-4 py-3 text-white'
-            value={code}
-            placeholder={t`Enter your verification code`}
-            onChangeText={(code) => setCode(code)}
-          />
-          <Pressable
-            className='w-full rounded-lg py-3'
-            style={{ backgroundColor: '#2563EB' }}
-            onPress={() => void onVerifyPress()}>
-            <Text className='text-center text-base font-semibold text-white'>
-              <Trans>Verify</Trans>
-            </Text>
-          </Pressable>
+      <SafeAreaView className='flex-1 bg-background'>
+        <View className='relative flex-1 px-6'>
+          {/* Decorative circles */}
+          <View className='absolute -left-32 -top-32 size-64 rounded-full bg-primary opacity-10' />
+          <View className='absolute -bottom-32 -right-32 size-64 rounded-full bg-accent opacity-10' />
+
+          <View className='flex-1 justify-center py-12'>
+            <View className='gap-8'>
+              <View className='items-center gap-3'>
+                <Text className='text-center text-4xl font-black text-foreground'>
+                  <Trans>Verify your email</Trans>
+                </Text>
+                <Text className='text-center text-base text-foreground-muted'>
+                  <Trans>Enter the code we sent to your email</Trans>
+                </Text>
+              </View>
+
+              <View className='gap-6'>
+                <View className='gap-2'>
+                  <Text className='text-sm font-medium text-foreground-subtle'>
+                    <Trans>Verification code</Trans>
+                  </Text>
+                  <View className='overflow-hidden rounded-2xl bg-input'>
+                    <TextInput
+                      className='p-4 text-base leading-none text-foreground placeholder:text-foreground-muted'
+                      value={code}
+                      placeholder={t`Enter verification code`}
+                      onChangeText={setCode}
+                      keyboardType='number-pad'
+                      autoComplete='one-time-code'
+                    />
+                  </View>
+                </View>
+
+                <Pressable
+                  className='overflow-hidden rounded-2xl bg-primary px-6 py-3.5 transition-colors active:bg-primary-muted'
+                  onPress={() => void onVerifyPress()}>
+                  <Text className='text-center text-base font-semibold text-primary-foreground'>
+                    <Trans>Verify email</Trans>
+                  </Text>
+                </Pressable>
+              </View>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView className='flex-1'>
-      <View className='flex-1 justify-center px-6'>
-        <View className='rounded-2xl p-8'>
-          <Text className='mb-8 text-center text-2xl font-bold text-white'>
-            <Trans>Sign up</Trans>
-          </Text>
+    <SafeAreaView className='flex-1 bg-background'>
+      <View className='relative flex-1 px-6'>
+        {/* Decorative circles */}
+        <View className='absolute -left-32 -top-32 size-64 rounded-full bg-primary opacity-10' />
+        <View className='absolute -bottom-32 -right-32 size-64 rounded-full bg-accent opacity-10' />
 
-          <View className='space-y-4'>
-            <View>
-              <TextInput
-                className='w-full rounded-lg border px-4 py-3 text-white'
-                autoCapitalize='none'
-                value={emailAddress}
-                placeholder={t`Enter email`}
-                onChangeText={(emailAddress) => setEmailAddress(emailAddress)}
-                placeholderTextColor='#9CA3AF'
-              />
+        <View className='flex-1 justify-between py-12'>
+          {/* Header Section */}
+          <View className='gap-8'>
+            <View className='items-center gap-3'>
+              <Text className='text-center text-4xl font-black text-foreground'>
+                <Trans>Create an account</Trans>
+              </Text>
+              <Text className='text-center text-base text-foreground-muted'>
+                <Trans>Sign up to get started with our platform</Trans>
+              </Text>
             </View>
 
-            <View>
-              <TextInput
-                className='w-full rounded-lg border px-4 py-3 text-white'
-                value={password}
-                placeholder={t`Enter password`}
-                secureTextEntry={true}
-                onChangeText={(password) => setPassword(password)}
-                placeholderTextColor='#9CA3AF'
-              />
+            {/* Form Section */}
+            <View className='gap-6'>
+              {/* Email Input */}
+              <View className='gap-2'>
+                <Text className='text-sm font-medium text-foreground-subtle'>
+                  <Trans>Email address</Trans>
+                </Text>
+                <View className='overflow-hidden rounded-2xl bg-input'>
+                  <TextInput
+                    className='p-4 text-base leading-none text-foreground placeholder:text-foreground-muted'
+                    autoCapitalize='none'
+                    value={emailAddress}
+                    placeholder={t`Enter your email`}
+                    onChangeText={setEmailAddress}
+                    keyboardType='email-address'
+                    autoComplete='email'
+                  />
+                </View>
+              </View>
+
+              {/* Password Input */}
+              <View className='gap-2'>
+                <Text className='text-sm font-medium text-foreground-subtle'>
+                  <Trans>Password</Trans>
+                </Text>
+                <View className='overflow-hidden rounded-2xl bg-input'>
+                  <TextInput
+                    className='p-4 text-base leading-none text-foreground placeholder:text-foreground-muted'
+                    value={password}
+                    placeholder={t`Create a password`}
+                    secureTextEntry={true}
+                    onChangeText={setPassword}
+                    autoComplete='new-password'
+                  />
+                </View>
+              </View>
+
+              {/* Sign Up Button */}
+              <Pressable
+                className='overflow-hidden rounded-2xl bg-primary px-6 py-3.5 transition-colors active:bg-primary-muted'
+                onPress={() => void onSignUpPress()}>
+                <Text className='text-center text-base font-semibold text-primary-foreground'>
+                  <Trans>Create account</Trans>
+                </Text>
+              </Pressable>
+
+              {/* Sign In Link */}
+              <View className='flex-row justify-center gap-1'>
+                <Text className='text-foreground-muted'>
+                  <Trans>Already have an account?</Trans>
+                </Text>
+                <Link href='/sign-in' asChild replace>
+                  <Pressable className='transition-opacity active:opacity-70'>
+                    <Text className='font-semibold text-primary'>
+                      <Trans>Sign in</Trans>
+                    </Text>
+                  </Pressable>
+                </Link>
+              </View>
             </View>
-
-            <Pressable
-              className='w-full rounded-lg py-3'
-              style={{ backgroundColor: '#2563EB' }}
-              onPress={() => void onSignUpPress()}>
-              <Text className='text-center text-base font-semibold text-white'>
-                <Trans>Sign up</Trans>
-              </Text>
-            </Pressable>
-
-            <Pressable
-              className='w-full rounded-lg py-3'
-              style={{ backgroundColor: '#2563EB' }}
-              onPress={() => void onPressGoogle()}>
-              <Text className='text-center text-base font-semibold text-white'>
-                <Trans>Sign in with Google</Trans>
-              </Text>
-            </Pressable>
-
-            <Pressable
-              className='w-full rounded-lg py-3'
-              style={{ backgroundColor: '#2563EB' }}
-              onPress={() => void onPressApple()}>
-              <Text className='text-center text-base font-semibold text-white'>
-                <Trans>Sign in with Apple</Trans>
-              </Text>
-            </Pressable>
           </View>
-        </View>
 
-        <View className='mt-8 flex-row items-center justify-center space-x-1'>
-          <Text className='text-white'>
-            <Trans>Already have an account? </Trans>
-          </Text>
-          <Link href='/sign-in' asChild replace>
-            <Pressable>
-              <Text className='font-semibold text-blue-600'>
-                <Trans>Sign in</Trans>
+          {/* OAuth Section */}
+          <View className='gap-6'>
+            {/* Divider */}
+            <View className='relative flex items-center justify-center'>
+              <View className='absolute inset-x-0 h-px bg-border' />
+              <Text className='relative bg-background px-4 text-sm text-foreground-muted'>
+                <Trans>or</Trans>
               </Text>
-            </Pressable>
-          </Link>
+            </View>
+
+            {/* OAuth Buttons */}
+            <View className='gap-3'>
+              {/* Google Button */}
+              <Pressable
+                className='flex-row items-center justify-center gap-3 rounded-2xl border border-border bg-card px-6 py-3.5 transition-colors active:bg-card-muted'
+                onPress={() => void onPressGoogle()}>
+                <View className='size-5'>
+                  <Ionicons
+                    className='text-foreground'
+                    name='logo-google'
+                    size={20}
+                  />
+                </View>
+                <Text className='text-base font-medium text-foreground'>
+                  <Trans>Continue with Google</Trans>
+                </Text>
+              </Pressable>
+
+              {/* Apple Button */}
+              <Pressable
+                className='flex-row items-center justify-center gap-3 rounded-2xl bg-foreground px-6 py-3.5 transition-colors active:bg-foreground-subtle'
+                onPress={() => void onPressApple()}>
+                <View className='size-5'>
+                  <Ionicons
+                    className='text-background'
+                    name='logo-apple'
+                    size={20}
+                  />
+                </View>
+                <Text className='text-base font-medium text-background'>
+                  <Trans>Continue with Apple</Trans>
+                </Text>
+              </Pressable>
+            </View>
+          </View>
         </View>
       </View>
     </SafeAreaView>
